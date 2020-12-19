@@ -1,0 +1,83 @@
+.mat-toolbar{
+    height: 80px;
+}
+.logo-content{
+    margin-top: 2%;
+    margin-left: 15%;
+    align-items: center;
+    border: 0px solid green;
+    width: 100%;
+}
+
+.employee {
+    color: #82A70C;
+    font-size: 20px;
+    margin-left: 10%;
+}
+
+.payroll {
+    font-size: 20px;
+    margin-left: 10%;
+
+}
+
+.register {
+    color: white;
+    font-size: 16px;
+    padding: 8px 30px;
+    width: fit-content;
+    transition: all 0.5s ease-in-out;
+    border-radius: 8px;
+    width: 100%;
+    font-weight: 500;
+    font-size: large;
+  }
+
+table{
+    width: 100%;
+}
+
+.tableWrapper {
+    margin-top:20px;
+    padding:15px;
+    background:#f6f6f6;
+}
+
+.containerTitle {
+    margin-left: 15%;
+    margin-right: 10%;
+    display:flex;
+    margin-top:15px;
+    font-size:12px;
+    font-weight:bold;
+  }
+
+.oneTitle {
+    flex:1;
+    padding:10px;
+    background:#444444;
+    color:#ffffff;
+}
+
+
+.containerListItems {
+   margin-left: 15%;
+   margin-right: 10%;
+   display:flex;
+  }
+
+  .three {
+    flex:1;
+    padding:10px;
+  }
+
+  .two {
+    flex:1;
+    padding:10px;
+  }
+
+  .one {
+    flex:1;
+    padding:10px;
+  }
+  

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RestAssureTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-05T07:19:06" hostname="DESKTOP-UDL4V0I" time="3.694">
+  <properties/>
+  <testcase name="onCallinggetEmployeeList_shouldReturnEmployeeList" classname="RestAssureTest" time="3.694"/>
+  <system-out><![CDATA[io.restassured.internal.RestAssuredResponseImpl@55cccf20
+String is [
+  {
+    "id": 1,
+    "name": "Pooja",
+    "salary": "10000"
+  },
+  {
+    "name": "Lisa",
+    "salary": "2000",
+    "id": 2
+  },
+  {
+    "name": "Lisa",
+    "salary": "2000",
+    "id": 3
+  },
+  {
+    "name": "xyz",
+    "salary": "8000",
+    "id": 4
+  }
+]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

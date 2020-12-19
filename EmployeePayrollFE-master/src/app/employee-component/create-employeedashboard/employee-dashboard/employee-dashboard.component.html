@@ -1,0 +1,48 @@
+<mat-toolbar>
+    <div fxLayout="row" class="logo-content">
+        <img src="../assets/images/logo.png" alt="program">
+        <div>
+            <span class="employee">EMPLOYEE</span><br>
+            <span class="payroll">PAYROLL</span>
+        </div>
+    </div>
+</mat-toolbar>
+
+<div fxLayout='row' fxLayoutAlign="space-around center" style="color: black;
+margin-top: 1%;">
+    <div style="font-weight: 800;
+  font-size: 200%;">Employee Details</div>
+    <div>
+        <button class="register" mat-raised-button color="primary" (click)="route()">Add Employee</button>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="tableWrapper">
+        <div class="containerTitle" fxLayout="row" fxLayoutAlign="space-around center">
+            <div class="oneTitle">Profile Pic</div>
+            <div class="oneTitle">Id</div>
+            <div class="oneTitle">Name</div>
+            <div class="oneTitle">Salary</div>
+            <div class="oneTitle">Department</div>
+            <div class="oneTitle">Gender</div>
+            <div class="oneTitle">Start Date</div>
+            <div class="oneTitle">Actions</div>
+        </div>
+
+        <div class="containerListItems" fxLayout="row" fxLayoutAlign="space-around center" *ngFor="let employee of employees;" [style.background-color]="changeColorOne()">
+            <div class="one"><img src={{employee.profilePic}} alt=""></div>
+            <div class="one">{{employee.employeeId}}</div>
+            <div class="two">{{employee.name}}</div>
+            <div class="two">{{employee.salary}}</div>
+            <div class="two">{{employee.departments}}</div>
+            <div class="two ">{{employee.gender}}</div>
+            <div class="two">{{employee.startDate}}</div>
+
+            <div class="three" fxLayout="row">
+                <button mat-raised-button [routerLink]="['/create',employee.employeeId]">Edit</button>
+                <button mat-raised-button (click)="deleteEmployee(employee.employeeId)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

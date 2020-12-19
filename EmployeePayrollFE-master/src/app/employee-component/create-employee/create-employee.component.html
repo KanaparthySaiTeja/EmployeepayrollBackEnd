@@ -1,0 +1,148 @@
+<mat-toolbar>
+    <div>
+        <div fxLayout="row" class="logo-content">
+            <img src="../assets/images/logo.png" alt="program" routerLink='/' />
+            <div>
+                <span class="employee" routerLink='/'>EMPLOYEE</span><br>
+                <span class="payroll" routerLink='/'>PAYROLL</span>
+            </div>
+        </div>
+    </div>
+</mat-toolbar>
+
+<div style="width: 100%;" [formGroup]="userDetail">
+    <mat-card class="card" fxFlex="60%" flex-wrap:wrap fxFlex.xs="100%">
+        <div fxLayout="column">
+            <div class="header">Employee Payroll Form</div>
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <div style="font-size: 73%;
+                margin-right: 4%;
+                margin-top: 8.5%;"> Name </div>
+                <mat-form-field class="field" fxFlex='98' appearance="outline" style="margin-left:11%;">
+                    <mat-label>Enter your name...</mat-label>
+                    <input matInput class="matInput"  formControlName="name" autocomplete="off" placeholder="Name">
+                    <mat-error fxFlex
+                    *ngIf="!userDetail.controls['name'].valid && userDetail.controls['name'].touched">
+                     Name is Required </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start" style="margin-top: 1%;">
+                <div style="font-size: 73%;
+                margin-right: 4%;
+                margin-top: 2%;" >Image</div>
+                <mat-radio-group aria-label="Image" formControlName="profilePic" fxLayout="row"
+                    fxLayoutAlign="space-evenly" fxFlex='100' style="width: 100px; margin-left: 2%;">
+                    <mat-radio-button value="../assets/profile-images/Ellipse -3.png">
+                        <img src="../assets/profile-images/Ellipse -3.png" alt="img1">
+                    </mat-radio-button>
+                    <mat-radio-button value="../assets/profile-images/Ellipse -1.png">
+                        <img src="../assets/profile-images/Ellipse -1.png" alt="img2">
+                    </mat-radio-button>
+                    <mat-radio-button value="../assets/profile-images/Ellipse -8.png">
+                        <img src="../assets/profile-images/Ellipse -8.png" alt="img3">
+                    </mat-radio-button>
+                    <mat-radio-button value="../assets/profile-images/Ellipse -7.png">
+                        <img src="../assets/profile-images/Ellipse -7.png" alt="img4">
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <div style="font-size: 73%;
+            margin-right: 4%;
+            margin-top: 4%;">Gender</div>
+                <mat-radio-group aria-label="Gender" formControlName="gender" fxLayout="row"
+                    fxLayoutAlign="space-evenly " fxFlex='50' style="width: 100px;padding-top: 4%;font-size: 73%;">
+                    <mat-radio-button value="male">Male</mat-radio-button>
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <div style="font-size: 73%;
+            margin-right: 4%;
+            margin-top: 4.5%;">Department</div>
+            <div *ngFor = "let department of department" fxLayout="row" fxFlex='98' fxLayoutAlign="space-evenly" style="width: 100px;padding-top: 4.5%;">
+                <mat-checkbox style="font-size: 73%" formControlName="department" #checkBox [value]= "department" (change)="getCheckbox(checkBox)">{{department}}</mat-checkbox>
+                <!-- <section class="example-section" formControlName="department" fxLayout="row"
+                    fxLayoutAlign="space-evenly " fxFlex='70' style="width: 100px;padding-top: 4%;font-size: 73%;">
+                    <mat-checkbox value="dept1">HR</mat-checkbox>
+                    <mat-checkbox value="dept2">Sales</mat-checkbox>
+                    <mat-checkbox value="dept3">Finance</mat-checkbox>
+                    <mat-checkbox value="dept4">Engineer</mat-checkbox>
+                    <mat-checkbox value="dept5">Others</mat-checkbox>
+                </section> -->
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <div style="font-size: 73%;
+                margin-right: 4%;
+                margin-top: 6%;">Salary</div>
+                <mat-slider fxFlex='60' formControlName="salary" style="margin-left:11%; margin-top:3.5%;width: 300px;"
+                    thumbLabel [displayWith]="formatLabel" (input)="getPrecio($event)" tickInterval="100" min="500" max="500000" value="{{precio}}"></mat-slider>
+                    <mat-error style ="font-size: 25%"
+                    *ngIf="!userDetail.controls['salary'].valid && userDetail.controls['salary'].touched">
+                    Salary is Required </mat-error>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start start">
+                <div style="font-size: 73%;
+                margin-right: 4%;
+                margin-top: 7%;">Start Date</div>
+                <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 140px;padding-top: 1%; margin-left: 3%;"
+                    fxFlex='50'>
+                    <mat-form-field class="field" fxFlex='50' appearance="outline">
+                        <mat-label>Day</mat-label>
+                        <select matNativeControl required formControlName="day">
+                            <option *ngFor="let day of Day " [value]="day">
+                                {{day}}
+                            </option>
+                        </select>
+                        <mat-error fxFlex
+                        *ngIf="!userDetail.controls['day'].valid && userDetail.controls['day'].touched">
+                        Day is Required </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="field" fxFlex='50' appearance="outline" style="margin-left: 5%;">
+                        <mat-label> Month</mat-label>
+                        <select matNativeControl required formControlName="month">
+                            <option *ngFor="let month of Month " [value]="month">
+                                {{month}}
+                            </option>
+                        </select>
+                        <mat-error fxFlex
+                        *ngIf="!userDetail.controls['month'].valid && userDetail.controls['month'].touched">
+                        Month is Required </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="field" fxFlex='50' appearance="outline" style="margin-left: 5%;">
+                        <mat-label> Year</mat-label>
+                        <select matNativeControl required formControlName="year">
+                            <option *ngFor="let year of Year " [value]="year">
+                                {{year}}
+                            </option>
+                        </select>
+                        <mat-error fxFlex
+                        *ngIf="!userDetail.controls['year'].valid && userDetail.controls['year'].touched">
+                        Year is Required </mat-error>
+                    </mat-form-field>
+                </div>
+             </div>
+           <div fxLayout="row" fxLayoutAlign="start start">
+                <div style="font-size: 73%;
+                margin-right: 10%;
+                margin-top: 2.5%;"> Notes </div>
+                <mat-form-field class="field" fxFlex='98' appearance="outline"
+                    style="margin-left:4%;margin-top:1%;">
+                    <mat-label>Notes</mat-label>
+                    <input matInput class="matInput" formControlName="note" autocomplete="off" placeholder="Notes">
+
+                </mat-form-field>
+            </div>
+
+            <div class="button" fxLayout="row" fxLayoutAlign="space-between end">
+                <button class="register" mat-raised-button color="primary" routerLink='/'>Cancel</button>
+                <button class="register" *ngIf="!isEdit" mat-raised-button color="primary" (click)="register()" [disabled]="!userDetail.valid">Submit</button>
+                <button class="register" *ngIf="isEdit" mat-raised-button color="primary" (click)="update()">Update</button>
+                <button class="register" mat-raised-button color="primary" (click)="onReset()">Reset</button>
+            </div>
+
+        </div>
+
+    </mat-card>
+</div>

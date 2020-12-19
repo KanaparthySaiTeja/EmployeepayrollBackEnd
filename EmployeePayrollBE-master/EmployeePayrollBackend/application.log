@@ -1,0 +1,7 @@
+2020-12-12 22:05:54.474  INFO 12308 --- [restartedMain] c.c.e.EmployeePayrollBackendApplication  : Starting EmployeePayrollBackendApplication using Java 15 on ABHINAVs-MacBook-Air.local with PID 12308 (/Users/abhinavthakur/Desktop/IntellijUltimate/EmployeePayrollBackend/target/classes started by abhinavthakur in /Users/abhinavthakur/Desktop/IntellijUltimate/EmployeePayrollBackend)
+2020-12-12 22:05:54.478 DEBUG 12308 --- [restartedMain] c.c.e.EmployeePayrollBackendApplication  : Running with Spring Boot v2.4.1, Spring v5.3.2
+2020-12-12 22:05:54.479  INFO 12308 --- [restartedMain] c.c.e.EmployeePayrollBackendApplication  : No active profile set, falling back to default profiles: default
+2020-12-12 22:05:56.696  WARN 12308 --- [restartedMain] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-12-12 22:05:57.859  WARN 12308 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-12 22:05:58.415  INFO 12308 --- [restartedMain] c.c.e.EmployeePayrollBackendApplication  : Started EmployeePayrollBackendApplication in 4.413 seconds (JVM running for 5.959)
+2020-12-12 22:05:58.418  INFO 12308 --- [restartedMain] c.c.e.EmployeePayrollBackendApplication  : Employee Payroll App Started
